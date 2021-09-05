@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017
+    volumes:
+      - data:/mongodb
+
+volumes:
+  data:
